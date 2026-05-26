@@ -24,7 +24,7 @@ public class Pizza {
         this.crust = crust;
     }
 
-    public boolean isHasStuffedCrust() {
+    public boolean isStuffedCrust() {
         return hasStuffedCrust;
     }
 

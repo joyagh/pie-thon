@@ -2,6 +2,7 @@ package com.pluralsight.models;
 
 public class Toppings {
     private String name, category;
+    private boolean hasExtra;
 
     public Toppings(String name, String category, boolean hasExtra) {
         this.name = name;
@@ -9,7 +10,7 @@ public class Toppings {
         this.hasExtra = hasExtra;
     }
 
-    public boolean isHasExtra() {
+    public boolean isExtra() {
         return hasExtra;
     }
 
@@ -21,5 +22,5 @@ public class Toppings {
         return category;
     }
 
-    private boolean hasExtra;
+
 }

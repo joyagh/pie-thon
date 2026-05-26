@@ -9,5 +9,17 @@ public class Toppings {
         this.hasExtra = hasExtra;
     }
 
+    public boolean isHasExtra() {
+        return hasExtra;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
     private boolean hasExtra;
 }

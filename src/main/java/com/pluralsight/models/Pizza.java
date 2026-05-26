@@ -3,7 +3,7 @@ package com.pluralsight.models;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pizza {
+public class Pizza implements OrderItem {
     private String size, crust;
     private boolean hasStuffedCrust;
     private List<Toppings> topping;
@@ -54,4 +54,9 @@ public class Pizza {
         this.topping.add(topping);
 
     }
+    @Override
+    public double getPrice() {
+        return 0;
+    }
 }
+

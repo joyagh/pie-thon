@@ -1,5 +1,5 @@
 package com.pluralsight.models;
 
-public class OrderItem {
-    double getPrice;
+public interface OrderItem {
+    double getPrice();
 }

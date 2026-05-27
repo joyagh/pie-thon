@@ -12,6 +12,6 @@ public class GarlicKnots implements OrderItem{
     }
 
     public double getPrice() {
-        return 0;
+        return 1.5 * quantity;
     }
 }

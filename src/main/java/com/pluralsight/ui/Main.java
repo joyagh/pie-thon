@@ -125,6 +125,35 @@ public class Main {
 
             int choice = input.nextInt();
             input.nextLine();
+            switch (choice) {
+                case 1:
+                    String[] meats = {"Pepperoni", "Sausage", "Ham", "Bacon", "Chicken", "Meatball"};
+                    System.out.println("""
+                            Select meat:
+                            1) Pepperoni  
+                            2) Sausage 
+                            3) Ham
+                            4) Bacon      
+                            5) Chicken  
+                            6) Meatball
+                            """);
+                    int meatChoice = input.nextInt();
+                    input.nextLine();
+                    String meatName = meats[meatChoice - 1];
+                    System.out.print("Extra " + meatName + "? (y/n): ");
+                    boolean extraMeat = input.next().equalsIgnoreCase("y");
+                    pizza.addToppings(new Toppings(meatName, "premium", extraMeat));
+                    System.out.println(meatName + " added!");
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
         }
     }
 }

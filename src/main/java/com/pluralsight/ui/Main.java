@@ -64,7 +64,7 @@ public class Main {
                     showAddGarlicKnotsScreen(order);
                     break;
                 case 4:
-                    //  showCheckoutScreen(order);
+                      showCheckoutScreen(order);
                     break;
                 case 0:
                     System.out.println("Order cancelled. Returning home...");
@@ -215,6 +215,37 @@ public class Main {
         int quantity = input.nextInt();
         order.addItem(new GarlicKnots(quantity));
         System.out.println("Garlic Knots added to your order!");
+    }
+
+    public static void showCheckoutScreen(Order order) {
+        System.out.println("\n=== Checkout ===");
+        System.out.println("--- Your Order ---");
+
+        for (OrderItem item : order.getItems()) {
+            if (item instanceof Pizza) {
+                Pizza p = (Pizza) item;
+                System.out.println("Pizza: " + p.getSize() + " | " + p.getCrust() + " crust");
+            } else if (item instanceof Drink) {
+                Drink d = (Drink) item;
+                System.out.println("Drink: " + d.getSize());
+            } else if (item instanceof GarlicKnots) {
+                GarlicKnots g = (GarlicKnots) item;
+                System.out.println("Garlic Knots x" + g.getQuantity());
+            }
+        }
+
+        System.out.printf("Total: $%.2f%n", order.getTotal());
+        System.out.println("""
+        1) Confirm  
+        0) Cancel
+        """);
+        System.out.print("Enter choice: ");
+        int choice = input.nextInt();
+        if (choice == 1) {
+            System.out.println("Order confirmed! Thank you for choosing Pie-thon!");
+        } else {
+            System.out.println("Order cancelled.");
+        }
     }
 }
 

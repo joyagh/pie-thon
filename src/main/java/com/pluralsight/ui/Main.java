@@ -10,12 +10,25 @@ public class Main {
     public static void main(String[] args) {
 
 
-
-        while(running){
+        while (running) {
             System.out.println("Welcome to Pie-thon!");
             System.out.println("1) New Order");
             System.out.println("0) Exit");
-            System.out.print("Enter Option Here");
+            System.out.print("Enter Option Here ");
+
+            int choice = input.nextInt();
+
+            switch (choice) {
+
+                case 1:
+                    //  showOrderScreen()
+                    break;
+                case 0:
+                    System.out.println("Pie Bye!");
+                    running = false;
+
+
+            }
         }
     }
 }

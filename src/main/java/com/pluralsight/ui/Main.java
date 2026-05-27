@@ -1,5 +1,7 @@
 package com.pluralsight.ui;
 
+import com.pluralsight.models.Pizza;
+
 import java.util.Scanner;
 
 public class Main {
@@ -21,7 +23,7 @@ public class Main {
             switch (choice) {
 
                 case 1:
-                    //  showOrderScreen()
+                      showOrderScreen();
                     break;
                 case 0:
                     System.out.println("Pie Bye!");
@@ -31,6 +33,31 @@ public class Main {
                     System.out.println("Invalid option. Please try again.");
 
 
+            }
+        }
+    }
+
+    public static void showOrderScreen(){
+        while (running){
+            System.out.println("What would you like to order?");
+            System.out.println("1) Pies");
+            System.out.println("2) Garlic Knots");
+            System.out.println("3) Drinks");
+            System.out.println("0) Home Menu");
+
+            int option = input.nextInt();
+
+            switch (option){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 0:
+                    break;
+                default:
+                    System.out.println("Invalid option. Please Try again");
             }
         }
     }

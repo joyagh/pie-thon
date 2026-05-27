@@ -1,6 +1,7 @@
 package com.pluralsight.ui;
 
-import com.pluralsight.models.Pizza;
+import com.pluralsight.models.*;
+
 
 import java.util.Scanner;
 
@@ -23,11 +24,12 @@ public class Main {
             switch (choice) {
 
                 case 1:
-                      showOrderScreen();
+                      showOrderScreen(new Order());
                     break;
                 case 0:
                     System.out.println("Pie Bye!");
                     running = false;
+                    break;
 
                 default:
                     System.out.println("Invalid option. Please try again.");
@@ -37,28 +39,42 @@ public class Main {
         }
     }
 
-    public static void showOrderScreen(){
-        while (running){
-            System.out.println("What would you like to order?");
-            System.out.println("1) Pies");
-            System.out.println("2) Garlic Knots");
-            System.out.println("3) Drinks");
-            System.out.println("0) Home Menu");
+    public static void showOrderScreen(Order order) {
+        boolean onOrderScreen = true;
+        while (onOrderScreen) {
+            System.out.println("\n=== Order Screen ===");
+            System.out.println("1) Add Pizza");
+            System.out.println("2) Add Drink");
+            System.out.println("3) Add Garlic Knots");
+            System.out.println("4) Checkout");
+            System.out.println("0) Cancel Order - Back to Home");
+            System.out.print("Enter Option Here: ");
 
             int option = input.nextInt();
 
-            switch (option){
+            switch (option) {
                 case 1:
+                  //  showAddPizzaScreen(order);
                     break;
                 case 2:
+                 //   showAddDrinkScreen(order);
                     break;
                 case 3:
+                  //  showAddGarlicKnotsScreen(order);
+                    break;
+                case 4:
+                  //  showCheckoutScreen(order);
                     break;
                 case 0:
+                    System.out.println("Order cancelled. Returning home...");
+                    onOrderScreen = false;
                     break;
                 default:
-                    System.out.println("Invalid option. Please Try again");
+                    System.out.println("Invalid option. Please try again.");
             }
         }
     }
+
+
+
 }

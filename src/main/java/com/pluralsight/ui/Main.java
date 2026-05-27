@@ -146,6 +146,22 @@ public class Main {
                     System.out.println(meatName + " added!");
                     break;
                 case 2:
+                    String[] cheeses = {"Mozzarella", "Parmesan", "Ricotta", "Goat Cheese", "Buffalo"};
+                    System.out.println("""
+                        Select cheese:
+                        1) Mozzarella  
+                        2) Parmesan  
+                        3) Ricotta
+                        4) Goat Cheese 
+                        5) Buffalo
+                        """);
+                    int cheeseChoice = input.nextInt();
+                    input.nextLine();
+                    String cheeseName = cheeses[cheeseChoice - 1];
+                    System.out.print("Extra " + cheeseName + "? (y/n): ");
+                    boolean extraCheese = input.next().equalsIgnoreCase("y");
+                    pizza.addToppings(new Toppings(cheeseName, "premium", extraCheese));
+                    System.out.println(cheeseName + " added!");
                     break;
                 case 3:
                     break;
@@ -154,6 +170,7 @@ public class Main {
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
+
         }
     }
 }

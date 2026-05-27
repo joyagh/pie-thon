@@ -100,6 +100,10 @@ public class Main {
         int crustChoice = input.nextInt();
         String crust = crusts[crustChoice - 1];
 
+        System.out.print("Would you like stuffed crust? (y/n): ");
+        boolean stuffedCrust = input.next().equalsIgnoreCase("y");
+
+
 
     }
 }

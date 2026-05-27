@@ -50,24 +50,23 @@ public class Pizza implements OrderItem {
     }
 
 
-    public void addToppings(Toppings topping){
+    public void addToppings(Toppings topping) {
         this.topping.add(topping);
 
     }
+
     @Override
     public double getPrice() {
         double total = 0;
         if (size.equalsIgnoreCase("Personal 8\"")) {
-        total = 8.50;
-    } else if (size.equalsIgnoreCase("Medium 12\"")) {
-        total = 12.00;
-    } else if (size.equalsIgnoreCase("Large 16\"")) {
-        total = 16.50;
-    }
-        for (Toppings t :topping){
-            if(t.getCategory().equalsIgnoreCase("premium")) {
-
-            }
+            total = 8.50;
+        } else if (size.equalsIgnoreCase("Medium 12\"")) {
+            total = 12.00;
+        } else if (size.equalsIgnoreCase("Large 16\"")) {
+            total = 16.50;
+        }
+        for (Toppings t : topping) {
+            if (t.getCategory().equalsIgnoreCase("premium")) {
                 if (t.getName().equalsIgnoreCase("Pepperoni") ||
                         t.getName().equalsIgnoreCase("Sausage") ||
                         t.getName().equalsIgnoreCase("Ham") ||
@@ -77,16 +76,30 @@ public class Pizza implements OrderItem {
                     if (size.equalsIgnoreCase("Personal 8\"")) {
                         total += 1.00;
                         if (t.isExtra()) total += 0.50;
-                    }else if (size.equalsIgnoreCase("Medium 12\"")){
+                    } else if (size.equalsIgnoreCase("Medium 12\"")) {
                         total += 2.00;
                         if (t.isExtra()) total += 1.00;
-                    }else if (size.equalsIgnoreCase("Large 16\"")){
+                    } else if (size.equalsIgnoreCase("Large 16\"")) {
                         total += 3.00;
                         if (t.isExtra()) total += 1.50;
+                    } else {
+                        if (size.equalsIgnoreCase("Personal 8\"")) {
+                            total += 0.75;
+                            if (t.isExtra()) total += 0.30;
+                        } else if (size.equalsIgnoreCase("Medium 12\"")) {
+                            total += 1.50;
+                            if (t.isExtra()) total += 0.60;
+                        } else if (size.equalsIgnoreCase("Large 16\"")) {
+                            total += 2.25;
+                            if (t.isExtra()) total += 0.90;
+                        }
+                    }
                 }
+
             }
+
+        }
         return total;
     }
-
 }
 

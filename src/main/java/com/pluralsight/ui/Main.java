@@ -14,7 +14,7 @@ public class Main {
             System.out.println("Welcome to Pie-thon!");
             System.out.println("1) New Order");
             System.out.println("0) Exit");
-            System.out.print("Enter Option Here ");
+            System.out.print("Enter Option Here: ");
 
             int choice = input.nextInt();
 
@@ -26,6 +26,9 @@ public class Main {
                 case 0:
                     System.out.println("Pie Bye!");
                     running = false;
+
+                default:
+                    System.out.println("Invalid option. Please try again.");
 
 
             }

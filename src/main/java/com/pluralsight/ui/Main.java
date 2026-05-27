@@ -14,7 +14,7 @@ public class Main {
 
 
         while (running) {
-            System.out.println("Welcome to Pie-thon!");
+            System.out.println("\n===Welcome to Pie-thon!===");
             System.out.println("1) New Order");
             System.out.println("0) Exit");
             System.out.print("Enter Option Here: ");
@@ -41,6 +41,7 @@ public class Main {
 
     public static void showOrderScreen(Order order) {
         boolean onOrderScreen = true;
+
         while (onOrderScreen) {
             System.out.println("\n=== Order Screen ===");
             System.out.println("1) Add Pizza");
@@ -54,7 +55,7 @@ public class Main {
 
             switch (option) {
                 case 1:
-                  //  showAddPizzaScreen(order);
+                    showAddPizzaScreen(order);
                     break;
                 case 2:
                  //   showAddDrinkScreen(order);
@@ -72,6 +73,30 @@ public class Main {
                 default:
                     System.out.println("Invalid option. Please try again.");
             }
+        }
+    }
+
+    public static void showAddPizzaScreen(Order order){
+        System.out.println("\n=== Add Your Pie!===");
+        System.out.println(
+        """
+        Select size: 
+        1) Personal - 8"
+        2) Medium - 12"
+        3) Large - 16"
+        """);
+
+        int size = input.nextInt();
+
+        switch(size){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default:
+                System.out.println("Invalid Option. Please try again");
         }
     }
 

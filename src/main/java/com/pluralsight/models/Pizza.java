@@ -64,6 +64,22 @@ public class Pizza implements OrderItem {
     } else if (size.equalsIgnoreCase("Large 16\"")) {
         total = 16.50;
     }
+        for (Toppings t :topping){
+            if(t.getCategory().equalsIgnoreCase("premium")) {
+
+            }
+                if (t.getName().equalsIgnoreCase("Pepperoni") ||
+                        t.getName().equalsIgnoreCase("Sausage") ||
+                        t.getName().equalsIgnoreCase("Ham") ||
+                        t.getName().equalsIgnoreCase("Bacon") ||
+                        t.getName().equalsIgnoreCase("Chicken") ||
+                        t.getName().equalsIgnoreCase("Meatball")) {
+                    if (size.equalsIgnoreCase("Personal 8\"")) {
+                        total += 1.00;
+                        if (t.isExtra()) total += 0.50;
+                    }
+                }
+            }
         return total;
     }
 

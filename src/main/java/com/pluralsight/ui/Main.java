@@ -61,7 +61,7 @@ public class Main {
                     showAddDrinkScreen(order);
                     break;
                 case 3:
-                    //  showAddGarlicKnotsScreen(order);
+                    showAddGarlicKnotsScreen(order);
                     break;
                 case 4:
                     //  showCheckoutScreen(order);
@@ -209,4 +209,13 @@ public class Main {
         System.out.println("Drink added to your order!");
 
     }
+
+    public static void showAddGarlicKnotsScreen(Order order) {
+        System.out.print("How many orders of garlic knots? ");
+        int quantity = input.nextInt();
+        order.addItem(new GarlicKnots(quantity));
+        System.out.println("Garlic Knots added to your order!");
+    }
 }
+
+

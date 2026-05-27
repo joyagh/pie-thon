@@ -1,11 +1,11 @@
 package com.pluralsight.models;
 
 public class Drink implements OrderItem {
-    private String size, flavor;
+    private String size;
 
-    public Drink(String size, String flavor) {
+    public Drink(String size) {
         this.size = size;
-        this.flavor = flavor;
+
     }
 
     public String getSize() {
@@ -16,13 +16,6 @@ public class Drink implements OrderItem {
         this.size = size;
     }
 
-    public String getFlavor() {
-        return flavor;
-    }
-
-    public void setFlavor(String flavor) {
-        this.flavor = flavor;
-    }
 
     @Override
     public double getPrice() {

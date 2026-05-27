@@ -24,7 +24,7 @@ public class Main {
             switch (choice) {
 
                 case 1:
-                      showOrderScreen(new Order());
+                    showOrderScreen(new Order());
                     break;
                 case 0:
                     System.out.println("Pie Bye!");
@@ -58,13 +58,13 @@ public class Main {
                     showAddPizzaScreen(order);
                     break;
                 case 2:
-                 //   showAddDrinkScreen(order);
+                    //   showAddDrinkScreen(order);
                     break;
                 case 3:
-                  //  showAddGarlicKnotsScreen(order);
+                    //  showAddGarlicKnotsScreen(order);
                     break;
                 case 4:
-                  //  showCheckoutScreen(order);
+                    //  showCheckoutScreen(order);
                     break;
                 case 0:
                     System.out.println("Order cancelled. Returning home...");
@@ -76,30 +76,20 @@ public class Main {
         }
     }
 
-    public static void showAddPizzaScreen(Order order){
+    public static void showAddPizzaScreen(Order order) {
         System.out.println("\n=== Add Your Pie!===");
+        String[] sizes = {"Personal 8\"", "Medium 12\"", "Large 16\""};
         System.out.println(
-        """
-        Select size: 
-        1) Personal - 8"
-        2) Medium - 12"
-        3) Large - 16"
-        """);
+                """
+                        Select size: 
+                        1) Personal - 8"
+                        2) Medium - 12"
+                        3) Large - 16"
+                        """);
 
-        int size = input.nextInt();
+        int sizeChoice = input.nextInt();
+        String size = sizes[sizeChoice - 1];
 
-        switch(size){
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            default:
-                System.out.println("Invalid Option. Please try again");
-        }
+
     }
-
-
-
 }

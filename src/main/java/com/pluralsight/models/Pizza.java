@@ -56,7 +56,16 @@ public class Pizza implements OrderItem {
     }
     @Override
     public double getPrice() {
-        return 0;
+        double total = 0;
+        if (size.equalsIgnoreCase("Personal 8\"")) {
+        total = 8.50;
+    } else if (size.equalsIgnoreCase("Medium 12\"")) {
+        total = 12.00;
+    } else if (size.equalsIgnoreCase("Large 16\"")) {
+        total = 16.50;
     }
+        return total;
+    }
+
 }
 

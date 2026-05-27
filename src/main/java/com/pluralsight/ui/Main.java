@@ -79,8 +79,7 @@ public class Main {
     public static void showAddPizzaScreen(Order order) {
         System.out.println("\n=== Add Your Pie!===");
         String[] sizes = {"Personal 8\"", "Medium 12\"", "Large 16\""};
-        System.out.println(
-                """
+        System.out.println("""
                         Select size: 
                         1) Personal - 8"
                         2) Medium - 12"
@@ -89,6 +88,17 @@ public class Main {
 
         int sizeChoice = input.nextInt();
         String size = sizes[sizeChoice - 1];
+
+        String[] crusts = {"Thin", "Regular", "Thick", "Cauliflower"};
+        System.out.println("""
+            Select crust:
+            1) Thin
+            2) Regular
+            3) Thick
+            4) Cauliflower
+            """);
+        int crustChoice = input.nextInt();
+        String crust = crusts[crustChoice - 1];
 
 
     }

@@ -77,6 +77,9 @@ public class Pizza implements OrderItem {
                     if (size.equalsIgnoreCase("Personal 8\"")) {
                         total += 1.00;
                         if (t.isExtra()) total += 0.50;
+                    }else if (size.equalsIgnoreCase("Medium 12\"")){
+                        total += 2.00;
+                        if (t.isExtra()) total += 1.00;
                     }
                 }
             }

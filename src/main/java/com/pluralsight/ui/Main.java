@@ -80,23 +80,23 @@ public class Main {
         System.out.println("\n=== Add Your Pie!===");
         String[] sizes = {"Personal 8\"", "Medium 12\"", "Large 16\""};
         System.out.println("""
-                        Select size: 
-                        1) Personal - 8"
-                        2) Medium - 12"
-                        3) Large - 16"
-                        """);
+                Select size: 
+                1) Personal - 8"
+                2) Medium - 12"
+                3) Large - 16"
+                """);
 
         int sizeChoice = input.nextInt();
         String size = sizes[sizeChoice - 1];
 
         String[] crusts = {"Thin", "Regular", "Thick", "Cauliflower"};
         System.out.println("""
-            Select crust:
-            1) Thin
-            2) Regular
-            3) Thick
-            4) Cauliflower
-            """);
+                Select crust:
+                1) Thin
+                2) Regular
+                3) Thick
+                4) Cauliflower
+                """);
         int crustChoice = input.nextInt();
         String crust = crusts[crustChoice - 1];
 
@@ -105,8 +105,26 @@ public class Main {
 
         Pizza pizza = new Pizza(size, crust, stuffedCrust);
 
+        // showToppingsScreen(pizza);
 
+        order.addItem(pizza);
+        System.out.println("Pie has been added to your order!");
 
+    }
 
+    public static void showToppingsScreen(Pizza pizza) {
+        boolean addingToppings = true;
+        while (addingToppings) {
+            System.out.println("""
+                    \n=== Toppings ===
+                    1) Meat
+                    2) Cheese
+                    3) Other Toppings
+                    0) Done
+                    """);
+
+            int choice = input.nextInt();
+            input.nextLine();
+        }
     }
 }

@@ -103,6 +103,9 @@ public class Main {
         System.out.print("Would you like stuffed crust? (y/n): ");
         boolean stuffedCrust = input.next().equalsIgnoreCase("y");
 
+        Pizza pizza = new Pizza(size, crust, stuffedCrust);
+
+
 
 
     }

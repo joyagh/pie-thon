@@ -47,10 +47,11 @@ public class Main {
 
         while (onOrderScreen) {
             System.out.println("\n=== Order Screen ===");
-            System.out.println("1) Add Pizza");
-            System.out.println("2) Add Drink");
-            System.out.println("3) Add Garlic Knots");
-            System.out.println("4) Checkout");
+            System.out.println("1) Pizza");
+            System.out.println("2) Drink");
+            System.out.println("3) Garlic Knots");
+            System.out.println("4) Signature Pizzas");
+            System.out.println("5) Checkout");
             System.out.println("0) Cancel Order - Back to Home");
             System.out.print("Enter Option Here: ");
 
@@ -67,6 +68,9 @@ public class Main {
                     showAddGarlicKnotsScreen(order);
                     break;
                 case 4:
+                    showAddSignaturePizzaScreen(order);
+                    break;
+                case 5:
                       showCheckoutScreen(order);
                     break;
                 case 0:
@@ -249,6 +253,27 @@ public class Main {
         int quantity = input.nextInt();
         order.addItem(new GarlicKnots(quantity));
         System.out.println("Garlic Knots added to your order!");
+    }
+    public static void showAddSignaturePizzaScreen(Order order){
+        System.out.println("""
+            \n=== Signature Pizzas ===
+            1) Margherita - 12" Regular | Mozzarella, Tomatoes, Basil, Marinara, Olive Oil
+            2) Veggie - 8" Regular | Bell Peppers, Spinach, Olives, Onions, Marinara, Mozzarella
+            0) Back
+            """);
+        int choice = getValidChoice(0, 2);
+        switch (choice) {
+            case 1:
+                order.addItem(new Margherita());
+                System.out.println("Margherita added to your order!");
+                break;
+            case 2:
+                order.addItem(new Veggie());
+                System.out.println("Veggie added to your order!");
+                break;
+            case 0:
+                return;
+        }
     }
 
     public static int getValidChoice(int min, int max) {

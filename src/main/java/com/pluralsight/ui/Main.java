@@ -22,7 +22,7 @@ public class Main {
             System.out.println("0) Exit");
             System.out.print("Enter Option Here: ");
 
-            int choice = input.nextInt();
+            int choice = getValidChoice(0,1);
 
             switch (choice) {
 
@@ -54,7 +54,7 @@ public class Main {
             System.out.println("0) Cancel Order - Back to Home");
             System.out.print("Enter Option Here: ");
 
-            int option = input.nextInt();
+            int option = getValidChoice(0,4);
 
             switch (option) {
                 case 1:
@@ -83,13 +83,13 @@ public class Main {
         System.out.println("\n=== Add Your Pie!===");
         String[] sizes = {"Personal 8\"", "Medium 12\"", "Large 16\""};
         System.out.println("""
-                Select size: 
+                Select size:
                 1) Personal - 8"
                 2) Medium - 12"
                 3) Large - 16"
                 """);
 
-        int sizeChoice = input.nextInt();
+        int sizeChoice = getValidChoice(1, sizes.length);
         String size = sizes[sizeChoice - 1];
 
         String[] crusts = {"Thin", "Regular", "Thick", "Cauliflower"};
@@ -100,7 +100,7 @@ public class Main {
                 3) Thick
                 4) Cauliflower
                 """);
-        int crustChoice = input.nextInt();
+        int crustChoice = getValidChoice(1, crusts.length);
         String crust = crusts[crustChoice - 1];
 
         System.out.print("Would you like stuffed crust? (y/n): ");
@@ -142,7 +142,7 @@ public class Main {
                             5) Chicken  
                             6) Meatball
                             """);
-                    int meatChoice = input.nextInt();
+                    int meatChoice = getValidChoice(1, meats.length);
                     input.nextLine();
                     String meatName = meats[meatChoice - 1];
                     System.out.print("Extra " + meatName + "? (y/n): ");
@@ -161,7 +161,7 @@ public class Main {
                                  5) Buffalo
                                  6) Olive Oil
                               """);
-    int sauceChoice = input.nextInt();
+    int sauceChoice = getValidChoice(1, sauces.length);
     input.nextLine();
     pizza.addToppings(new Toppings(sauces[sauceChoice - 1], "regular", false));
     System.out.println(sauces[sauceChoice - 1] + " added!");
@@ -176,7 +176,7 @@ public class Main {
                             4) Goat Cheese
                             5) Buffalo
                             """);
-                    int cheeseChoice = input.nextInt();
+                    int cheeseChoice = getValidChoice(1, cheeses.length);
                     input.nextLine();
                     String cheeseName = cheeses[cheeseChoice - 1];
                     System.out.print("Extra " + cheeseName + "? (y/n): ");
@@ -198,7 +198,7 @@ public class Main {
                             8) Pineapple   
                             9) Anchovies
                             """);
-                    int otherChoice = input.nextInt();
+                    int otherChoice = getValidChoice(1, others.length);
                     input.nextLine();
                     pizza.addToppings(new Toppings(others[otherChoice - 1], "regular", false));
                     System.out.println(others[otherChoice - 1] + " added!");
@@ -210,7 +210,7 @@ public class Main {
                                    1) Red Pepper
                                    2) Parmesan
                                  """);
-                    int sideChoice = input.nextInt();
+                    int sideChoice = getValidChoice(1, sides.length);
                     input.nextLine();
                     pizza.addToppings(new Toppings(sides[sideChoice - 1], "regular", false));
                     System.out.println(sides[sideChoice - 1] + " added!");
@@ -250,6 +250,24 @@ public class Main {
         order.addItem(new GarlicKnots(quantity));
         System.out.println("Garlic Knots added to your order!");
     }
+
+    public static int getValidChoice(int min, int max) {
+        int choice = -1;
+        do {
+            try {
+                choice = input.nextInt();
+                if (choice < min || choice > max) {
+                    System.out.println("Invalid option. Please select a number between " + min + " and " + max + ".");
+                }
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please try again.");
+                input.nextLine();
+            }
+
+            } while (choice < min || choice > max);
+            return choice;
+
+        }
 
     public static void showCheckoutScreen(Order order) {
 

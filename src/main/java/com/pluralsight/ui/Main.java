@@ -221,6 +221,27 @@ public class Main {
     }
 
     public static void showCheckoutScreen(Order order) {
+
+        int pizzaCount = 0;
+        for (OrderItem item : order.getItems()) {
+            if (item instanceof Pizza) {
+                pizzaCount++;
+            }
+        }
+        if (pizzaCount == 0) {
+            boolean hasSide = false;
+            for (OrderItem item : order.getItems()) {
+                if(item instanceof Drink || item instanceof GarlicKnots) {
+                    hasSide = true;
+                }
+            }
+            if (!hasSide) {
+                System.out.println("You must add something to your order.");
+                return;
+            }
+        }
+
+
         System.out.println("\n=== Checkout ===");
         System.out.println("--- Your Order ---");
 
@@ -236,6 +257,8 @@ public class Main {
                 System.out.println("Garlic Knots x" + g.getQuantity());
             }
         }
+
+
 
         System.out.printf("Total: $%.2f%n", order.getTotal());
         System.out.println("""

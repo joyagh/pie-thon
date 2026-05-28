@@ -1,0 +1,7 @@
+=== Pie-thon Receipt ===
+Date: 20260528-111621
+--- Order ---
+Garlic Knots x2
+  Garlic Knots Total: $3.00
+Order Total: $3.00
+Thank you for choosing Pie-thon!

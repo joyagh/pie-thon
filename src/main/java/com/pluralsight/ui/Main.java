@@ -121,8 +121,10 @@ public class Main {
             System.out.println("""
                     \n=== Toppings ===
                     1) Meat
-                    2) Cheese
-                    3) Other Toppings
+                    2) Sauce
+                    3) Cheese
+                    4) Other Toppings
+                    5) Sides
                     0) Done
                     """);
 
@@ -149,13 +151,29 @@ public class Main {
                     System.out.println(meatName + " added!");
                     break;
                 case 2:
+                    String[] sauces = {"Marinara", "Alfredo", "Pesto", "BBQ", "Buffalo", "Olive Oil"};
+                         System.out.println("""
+                              Select sauce:
+                                 1) Marinara
+                                 2) Alfredo
+                                 3) Pesto
+                                 4) BBQ
+                                 5) Buffalo
+                                 6) Olive Oil
+                              """);
+    int sauceChoice = input.nextInt();
+    input.nextLine();
+    pizza.addToppings(new Toppings(sauces[sauceChoice - 1], "regular", false));
+    System.out.println(sauces[sauceChoice - 1] + " added!");
+                    break;
+                case 3:
                     String[] cheeses = {"Mozzarella", "Parmesan", "Ricotta", "Goat Cheese", "Buffalo"};
                     System.out.println("""
                             Select cheese:
-                            1) Mozzarella  
-                            2) Parmesan  
+                            1) Mozzarella
+                            2) Parmesan
                             3) Ricotta
-                            4) Goat Cheese 
+                            4) Goat Cheese
                             5) Buffalo
                             """);
                     int cheeseChoice = input.nextInt();
@@ -166,7 +184,7 @@ public class Main {
                     pizza.addToppings(new Toppings(cheeseName, "premium", extraCheese));
                     System.out.println(cheeseName + " added!");
                     break;
-                case 3:
+                case 4:
                     String[] others = {"Onions", "Mushrooms", "Bell Peppers", "Olives", "Tomatoes", "Spinach", "Basil", "Pineapple", "Anchovies"};
                     System.out.println("""
                             Select topping:
@@ -184,6 +202,9 @@ public class Main {
                     input.nextLine();
                     pizza.addToppings(new Toppings(others[otherChoice - 1], "regular", false));
                     System.out.println(others[otherChoice - 1] + " added!");
+                    break;
+                case 5:
+
                     break;
                 case 0:
                     addingToppings = false;
@@ -262,7 +283,7 @@ public class Main {
 
         System.out.printf("Total: $%.2f%n", order.getTotal());
         System.out.println("""
-        1) Confirm  
+        1) Confirm
         0) Cancel
         """);
         System.out.print("Enter choice: ");

@@ -204,6 +204,16 @@ public class Main {
                     System.out.println(others[otherChoice - 1] + " added!");
                     break;
                 case 5:
+                    String[] sides = {"Red Pepper", "Parmesan"};
+                    System.out.println("""
+                                    Select side:
+                                   1) Red Pepper
+                                   2) Parmesan
+                                 """);
+                    int sideChoice = input.nextInt();
+                    input.nextLine();
+                    pizza.addToppings(new Toppings(sides[sideChoice - 1], "regular", false));
+                    System.out.println(sides[sideChoice - 1] + " added!");
 
                     break;
                 case 0:

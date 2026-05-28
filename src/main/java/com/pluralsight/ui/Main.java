@@ -245,10 +245,53 @@ public class Main {
         System.out.print("Enter choice: ");
         int choice = input.nextInt();
         if (choice == 1) {
-            System.out.println("Order confirmed! Thank you for choosing Pie-thon!");
-        } else {
-            System.out.println("Order cancelled.");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
+    String fileName = order.getOrderTime().format(formatter) + ".txt";
+
+    File receiptsFolder = new File("receipts");
+    if (!receiptsFolder.exists()) {
+        receiptsFolder.mkdir();
+    }
+
+    try (PrintWriter writer = new PrintWriter("receipts/" + fileName)) {
+        writer.println("=== Pie-thon Receipt ===");
+        writer.println("Date: " + order.getOrderTime().format(formatter));
+        writer.println("--- Order ---");
+
+        for (OrderItem item : order.getItems()) {
+            if (item instanceof Pizza) {
+                Pizza p = (Pizza) item;
+                writer.println("Pizza: " + p.getSize() + " | " + p.getCrust() + " crust");
+                for (Toppings t : p.getToppings()) {
+                    writer.println("- " + t.getName());
+                    if (t.isExtra()) {
+                        writer.println("(extra)");
+                    }
+                }
+                writer.printf("  Pizza Total: $%.2f%n", p.getPrice());
+            } else if (item instanceof Drink) {
+                Drink d = (Drink) item;
+                writer.println("Drink: " + d.getSize());
+                writer.printf("  Drink Total: $%.2f%n", d.getPrice());
+            } else if (item instanceof GarlicKnots) {
+                GarlicKnots g = (GarlicKnots) item;
+                writer.println("Garlic Knots x" + g.getQuantity());
+                writer.printf("  Garlic Knots Total: $%.2f%n", g.getPrice());
+            }
         }
+
+        writer.printf("Order Total: $%.2f%n", order.getTotal());
+        writer.println("Thank you for choosing Pie-thon!");
+
+    } catch (Exception e) {
+        System.out.println("Error saving receipt: " + e.getMessage());
+    }
+
+    System.out.println("Order confirmed! Thank you for choosing Pie-thon!");
+
+} else {
+    System.out.println("Order cancelled.");
+}
     }
 }
 

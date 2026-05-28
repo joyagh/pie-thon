@@ -1,0 +1,13 @@
+=== Pie-thon Receipt ===
+Date: 20260528-110315
+--- Order ---
+Pizza: Medium 12" | Regular crust
+  - Sausage
+    (extra)
+  - Chicken
+    (extra)
+  - Mozzarella
+    (extra)
+  Pizza Total: $18.00
+Order Total: $18.00
+Thank you for choosing Pie-thon!

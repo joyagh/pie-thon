@@ -36,6 +36,9 @@ Pie-thon is a command-line application that allows customers to place fully cust
 3. Select **4) Checkout** to review your order and confirm
 4. Your receipt will be saved to the `receipts/` folder
 
+   <img width="724" height="720" alt="Screenshot 2026-05-29 at 8 10 56 AM" src="https://github.com/user-attachments/assets/5ba58361-f29b-44e3-803a-700f4af1d2f1" />
+
+
 
 ## Author
 
